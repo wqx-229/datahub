@@ -26,7 +26,7 @@ export default function useDescriptionRenderer(editableSchemaMetadata: EditableS
         const displayedDescription = relevantEditableFieldInfo?.description || description;
         const sanitizedDescription = DOMPurify.sanitize(displayedDescription);
         const original = record.description ? DOMPurify.sanitize(record.description) : undefined;
-
+        console.log(record);
         const handleExpandedRows = (expanded) => setExpandedRows((prev) => ({ ...prev, [index]: expanded }));
 
         return (

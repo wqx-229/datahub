@@ -36,6 +36,7 @@ type Props = {
 
 export default function TableOfMlFeatures({ features }: Props) {
     const refetch = useRefetch();
+    console.log(features);
     const [updateDescription] = useUpdateDescriptionMutation();
     const entityRegistry = useEntityRegistry();
 
