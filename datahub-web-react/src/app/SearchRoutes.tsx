@@ -7,6 +7,7 @@ import { useEntityRegistry } from './useEntityRegistry';
 import { EntityPage } from './entity/EntityPage';
 import { BrowseResultsPage } from './browse/BrowseResultsPage';
 import { SearchPage } from './search/SearchPage';
+import { SearchTags } from './search/SearchTags';
 import { AnalyticsPage } from './analyticsDashboard/components/AnalyticsPage';
 import { ManageDomainsPage } from './domain/ManageDomainsPage';
 import { ManageIngestionPage } from './ingest/ManageIngestionPage';
@@ -42,6 +43,7 @@ export const SearchRoutes = (): JSX.Element => {
                 <Route path={PageRoutes.INGESTION} render={() => <ManageIngestionPage />} />
                 <Route path={PageRoutes.SETTINGS} render={() => <SettingsPage />} />
                 <Route path={`${PageRoutes.GLOSSARY}*`} render={() => <GlossaryRoutes />} />
+                <Route path={`${PageRoutes.SEARCH_TAGS}*`} render={() => <SearchTags />} />
                 <Route component={NoPageFound} />
             </Switch>
         </SearchablePage>

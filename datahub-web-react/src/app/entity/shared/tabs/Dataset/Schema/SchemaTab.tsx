@@ -150,13 +150,15 @@ export const SchemaTab = ({ properties }: { properties?: any }) => {
     const rows = useMemo(() => {
         return groupByFieldPath(filteredRows, { showKeySchema });
     }, [showKeySchema, filteredRows]);
+    console.log(rows);
+    console.log(editableSchemaMetadata);
 
     const lastUpdated = getSchemaBlameData?.getSchemaBlame?.version?.semanticVersionTimestamp;
     const lastObserved = versionedDatasetData.data?.versionedDataset?.schema?.lastObserved;
 
     const schemaFieldBlameList: Array<SchemaFieldBlame> =
         (getSchemaBlameData?.getSchemaBlame?.schemaFieldBlameList as Array<SchemaFieldBlame>) || [];
-
+    console.log(schemaFieldBlameList);
     return (
         <SchemaContext.Provider value={{ refetch }}>
             <SchemaHeader

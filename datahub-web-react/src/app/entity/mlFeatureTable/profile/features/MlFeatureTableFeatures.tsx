@@ -9,6 +9,8 @@ import TableOfMlFeatures from './TableOfMlFeatures';
 export default function MlFeatureTableFeatures() {
     const baseEntity = useBaseEntity<GetMlFeatureTableQuery>();
     const featureTable = baseEntity?.mlFeatureTable;
+    console.log(baseEntity);
+    console.log(featureTable);
 
     const features = (
         featureTable?.properties && (featureTable?.properties?.mlFeatures || featureTable?.properties?.mlPrimaryKeys)

@@ -49,6 +49,7 @@ export enum SelectActionGroups {
     CHANGE_DEPRECATION,
     DELETE,
     CHANGE_DATA_PRODUCTS,
+    BATCH_TAGS,
 }
 
 /**

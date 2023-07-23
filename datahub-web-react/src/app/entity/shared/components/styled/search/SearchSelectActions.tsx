@@ -1,5 +1,6 @@
 import React from 'react';
 import OwnersDropdown from './action/OwnersDropdown';
+import BatchTagsDown from './action/batchTagsdown';
 import GlossaryTermDropdown from './action/GlossaryTermsDropdown';
 import TagsDropdown from './action/TagsDropdown';
 import DomainDropdown from './action/DomainsDropdown';
@@ -25,6 +26,7 @@ const DEFAULT_ACTION_GROUPS = [
     SelectActionGroups.CHANGE_DEPRECATION,
     SelectActionGroups.DELETE,
     SelectActionGroups.CHANGE_DATA_PRODUCTS,
+    SelectActionGroups.BATCH_TAGS,
 ];
 
 type Props = {
@@ -62,6 +64,16 @@ export const SearchSelectActions = ({
 
     return (
         <>
+            {visibleActionGroups.has(SelectActionGroups.BATCH_TAGS) && (
+                <BatchTagsDown
+                    urns={selectedEntityUrns}
+                    disabled={
+                        selectedEntityUrns.length === 0 ||
+                        !isEntityCapabilitySupported(EntityCapabilityType.OWNERS, selectedEntityTypes)
+                    }
+                    refetch={refetch}
+                />
+            )}
             {visibleActionGroups.has(SelectActionGroups.CHANGE_OWNERS) && (
                 <OwnersDropdown
                     urns={selectedEntityUrns}

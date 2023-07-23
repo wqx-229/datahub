@@ -74,7 +74,9 @@ export function HeaderLinks(props: Props) {
     const showIngestion =
         isIngestionEnabled && me && me.platformPrivileges?.manageIngestion && me.platformPrivileges?.manageSecrets;
     const showDomains = me?.platformPrivileges?.createDomains || me?.platformPrivileges?.manageDomains;
-
+    const newShow = window.location.search.indexOf('query=');
+    const showSearchTags =
+        newShow !== -1 && (me?.platformPrivileges?.createDomains || me?.platformPrivileges?.manageDomains);
     useUpdateEducationStepIdsAllowlist(!!showIngestion, HOME_PAGE_INGESTION_ID);
 
     return (
@@ -126,6 +128,17 @@ export function HeaderLinks(props: Props) {
                                     <NavTitleContainer>
                                         <FolderOutlined style={{ fontSize: '14px', fontWeight: 'bold' }} />
                                         <NavTitleText>Domains</NavTitleText>
+                                    </NavTitleContainer>
+                                    <NavTitleDescription>Manage related groups of data assets</NavTitleDescription>
+                                </Link>
+                            </MenuItem>
+                        )}
+                        {showSearchTags && (
+                            <MenuItem key="1">
+                                <Link to="/searchTags">
+                                    <NavTitleContainer>
+                                        <FolderOutlined style={{ fontSize: '14px', fontWeight: 'bold' }} />
+                                        <NavTitleText>searchTags</NavTitleText>
                                     </NavTitleContainer>
                                     <NavTitleDescription>Manage related groups of data assets</NavTitleDescription>
                                 </Link>
